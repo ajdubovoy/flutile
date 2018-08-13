@@ -3,6 +3,11 @@ class InstrumentsController < ApplicationController
     @instruments = Instrument.all
   end
 
+  def show
+    @instrument = Instrument.find(params[:id])
+    @review = Review.new
+  end
+
   def new
     @instrument = Instrument.new
   end
