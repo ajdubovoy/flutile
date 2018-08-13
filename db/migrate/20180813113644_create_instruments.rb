@@ -6,7 +6,7 @@ class CreateInstruments < ActiveRecord::Migration[5.2]
       t.integer :price
       t.string :location
       t.text :description
-      t.string :picture_url
+      t.string :photo
 
       t.timestamps
     end

@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2018_08_13_114427) do
     t.integer "price"
     t.string "location"
     t.text "description"
-    t.string "picture_url"
+    t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_instruments_on_user_id"

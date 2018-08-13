@@ -32,3 +32,7 @@ end
 
 # Authentication
 gem 'devise'
+
+# Images
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
