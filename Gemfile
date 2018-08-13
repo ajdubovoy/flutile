@@ -32,3 +32,6 @@ end
 
 # Authentication
 gem 'devise'
+
+# Images
+gem 'dotenv-rails', groups: [:development, :test]
