@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'conversations/index'
   devise_for :users
   root to: 'instruments#index'
-  resources :instruments, only: [:index, :show, :new, :create]
+  resources :instruments
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :conversations, only: [:index, :create] do 
