@@ -5,8 +5,10 @@
   background-position: center;
   color: white;
   position: relative;
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  margin: 10px;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);
+  margin: 10px 0;
+  border-radius: 3px;
+  // border: 0.5px solid $light-gray;
 }
 .card-user {
   position: absolute;
@@ -42,9 +44,10 @@
   right: 0;
   width: 100%;
   z-index: 2;
-  background: black;
+  background: $red;
   opacity: 0;
+  transition: opacity 0.5s;
 }
 .card-link:hover {
-  opacity: 0.1;
+  opacity: 0.3;
 }
