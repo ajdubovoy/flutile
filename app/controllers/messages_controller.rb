@@ -7,8 +7,9 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @conversation.messages
+    authorize @conversation
 
-    @messages.where("user_id != ? AND read = ?", current_user.id, false).update_all(read: true)
+    policy_scope(Message).where("user_id != ? AND read = ?", current_user.id, false).update_all(read: true)
 
     @message = @conversation.messages.new
   end
@@ -16,9 +17,13 @@ class MessagesController < ApplicationController
   def create
     @message = @conversation.messages.new(message_params)
     @message.user = current_user
+    authorize @conversation
+      
 
+    
     if @message.save
       redirect_to conversation_messages_path(@conversation)
+    authorize @conversation
     end
   end
 
