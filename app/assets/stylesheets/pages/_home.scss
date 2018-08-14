@@ -1,1 +1,10 @@
 // Specific CSS for your home-page
+body{
+  background-color: $dark-gray;
+}
+
+.form-control{
+  background-color: $darker-gray !important;
+  color: $light-gray !important;
+  border: none !important;
+}
