@@ -10,7 +10,7 @@
 <div class="container">
   <div class="description-and-map">
     <div class="row">
-      <%= link_to 'Book this instrument', conversations_path(sender_id: current_user.id, receiver_id: @instrument.user.id), method: :post, class: 'btn btn-primary'%>
+      <%= link_to 'Message owner', conversations_path(sender_id: current_user.id, receiver_id: @instrument.user.id), method: :post, class: 'btn btn-primary'%>
 
       <% if policy(@instrument).edit? %>
         <%= link_to "Edit", edit_instrument_path(@instrument), class: 'btn btn-warning' %>
@@ -26,7 +26,7 @@
     <br>
 
     <div class="row">
-      <div class="col-sm-6" style="height: 300px; background-image: url('<%= image_url "https://maps.googleapis.com/maps/api/staticmap?center=#{@instrument.location.gsub(' ', '+')}&zoom=13&size=600x300&key=AIzaSyBtaHK-BLhBg7TruJu8iKk_wETqZMJM-GY" %>');"></div>
+      <div class="col-sm-6" style="height: 300px; background-image: url('<%= image_url "https://maps.googleapis.com/maps/api/staticmap?center=#{@instrument.location.gsub(' ', '+')}&zoom=13&size=600x300" %>');"></div>
       <div class="col-sm-6">
         <h3>Description</h3>
         <p><%= @instrument.description %></p>
