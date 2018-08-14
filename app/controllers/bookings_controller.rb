@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = policy_scope(Booking)
+    @bookings = policy_scope(Booking).where("user_id = ?", current_user.id)
     # @conversations = Conversation.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)
   end
 
