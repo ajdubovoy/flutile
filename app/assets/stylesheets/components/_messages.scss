@@ -4,7 +4,7 @@
   padding: 20px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
   border-radius: 20px;
-  background-color: darkgrey;
+  background-color: $dark-gray;
   margin: 10px;
 }
 .message:last-child {
@@ -48,13 +48,13 @@
   font-weight: bold;
 }
 .status.accepted {
-  color: #04A366;
+  color: $green;
 }
 .status.declined {
-  color: red;
+  color: $red;
 }
 .status.pending {
-  color: lightgrey;
+  color: $light-gray;
 }
 
 .avatar {
