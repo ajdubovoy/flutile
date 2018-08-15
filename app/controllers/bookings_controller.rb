@@ -16,15 +16,17 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new
-    @booking.instrument = Instrument.find(params[:instrument])
+    @booking.instrument = Instrument.find(params[:booking][:instrument])
+    @booking.start_date = params[:booking][:start_date]
+    @booking.end_date = params[:booking][:end_date]
     @booking.status = "Confirmed"
     @booking.user = current_user
-    authorize @booking
     @booking.save
+    authorize @booking
     redirect_to booking_path(@booking)
   end
 
     def instrument_params
-      params.permit(:instrument)
+      params.permit(:instrument, :start_date, :end_date)
     end
 end

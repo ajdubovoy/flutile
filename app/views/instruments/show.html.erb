@@ -50,3 +50,15 @@
     </div>
 
 </div>
+
+
+<%= form_for @booking do |f| %> 
+    <p>
+    <%= date_field(:booking, :start_date) %>
+    <%= date_field(:booking, :end_date) %>
+    <%= f.hidden_field :instrument, value: @instrument.id %>
+
+
+   </p>
+   <%= f.submit "Submit", :action => :create %>
+<% end %>
