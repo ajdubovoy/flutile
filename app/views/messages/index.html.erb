@@ -1,27 +1,29 @@
-<% @messages.each do |message| %>
-  <% if message.body %>
-    <div class="message">
-      <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-      <div class="message-name">
-        <h3><%= message.user.email %></h3>
-        <p>10/07/17</p>
-      </div>
-      <div class="message-body">
-        <p><strong><%= message.body %></strong></p>
-        <p> <%= message.body %></p>
-      </div>
-      <div class="message-status">
-        <p class="status pending">Pending</p>
-        <p class="price">€345</p>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <% @messages.each do |message| %>
+        <% if message.body %>
+          <div class="message">
+            <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+            <div class="message-name">
+              <h3><%= message.user.email %></h3>
+              <p>10/07/17</p>
+            </div>
+            <div class="message-body">
+              <p><strong><%= message.body %></strong></p>
+              <p> <%= message.body %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-  <% end %>
-<% end %>
-
-<%= form_for [@conversation, @message] do |f| %>
-  <div class="field">
-    <%= f.text_area :body, placeholder: "Your message" %>
   </div>
-  <%= f.submit "Send" %>
-<% end %>
-
+  <div class="row">
+    <%= form_for [@conversation, @message] do |f| %>
+      <div class="form-inline">
+        <%= f.text_area :body, placeholder: "Your message", class: 'form-control' %>
+        <%= f.submit "Send", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
