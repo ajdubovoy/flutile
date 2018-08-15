@@ -16,9 +16,9 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new
-    @booking.instrument = Instrument.find(params[:booking][:instrument])
-    @booking.start_date = params[:booking][:start_date]
-    @booking.end_date = params[:booking][:end_date]
+    @booking.instrument = Instrument.find(params[:instrument])
+    @booking.start_date = params[:start_date]
+    @booking.end_date = params[:end_date]
     @booking.status = "Confirmed"
     @booking.user = current_user
     @booking.save

@@ -51,14 +51,10 @@
 
 </div>
 
-
-<%= form_for @booking do |f| %> 
-    <p>
-    <%= date_field(:booking, :start_date) %>
-    <%= date_field(:booking, :end_date) %>
-    <%= f.hidden_field :instrument, value: @instrument.id %>
-
-
-   </p>
-   <%= f.submit "Submit", :action => :create %>
-<% end %>
+<form action="/bookings" method="post" >
+  <p><input type="text" id="fromDate" placeholder="Start date" name="<%= :start_date %>">
+     <input type="text" id="toDate" placeholder="End date" name="<%= :end_date %>">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :instrument, @instrument.id %>
+  <input type="submit" value="Book this instrument"></p>
+</form>
