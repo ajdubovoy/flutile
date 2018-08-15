@@ -6,7 +6,11 @@ class InstrumentsController < ApplicationController
     @instruments = policy_scope(Instrument)
   end
 
-  def show; end
+  def show
+    @booking = Booking.new
+    @booking.instrument = @instrument
+    @booking.user = current_user
+  end
 
   def new
     @instrument = Instrument.new
