@@ -23,7 +23,10 @@
       <div class="form-inline">
         <%= f.text_area :body, placeholder: "Your message", class: 'form-control' %>
         <%= f.submit "Send", class: "btn btn-primary" %>
+        <%= link_to "Back to all instruments", instruments_path, class: 'btn btn-default' %>
       </div>
     <% end %>
   </div>
 </div>
+
+
