@@ -1,5 +1,36 @@
-<%= @booking.user_id%>
-<%= @user.email %>
-<%= @booking.instrument.user %>
-<%= @booking %>
-<%= @booking %>
+<div class="banner banner-small" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 50%), url('<%= cl_image_path @instrument.photo, height: 300, width: 400, crop: :fill %>');">
+  <div class="banner-content">
+    <h1><%= @instrument.name %></h1>
+    <p>Your <%= @booking.status %> booking in <%= @instrument.location %></p>
+  </div>
+</div>
+
+<br>
+
+<div class="container">
+  <div class="row">
+    <%= link_to "Back to all bookings", bookings_path, class: 'btn btn-default' %>
+  </div>
+
+  <br>
+
+  <div class="col-sm-6">
+    <h3>Description</h3>
+    <p><%= @instrument.description %></p>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 col-sm-offset-6">
+      <h3>Dates</h3>
+      <p>Start Date: <%= @booking.start_date %></p>
+      <p>Start Date: <%= @booking.end_date %></p>
+    </div>
+    <div class="col-sm-3 col-sm-offset-6">
+      <h3>Price</h3>
+      <p>€<%= @instrument.price %></p>
+    </div>
+    <div class="col-sm-3">
+      <h3>Owner</h3>
+      <p><%= @user.name %></p>
+    </div>
+  </div>
+</div>
