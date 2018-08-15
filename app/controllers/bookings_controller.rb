@@ -8,8 +8,10 @@ class BookingsController < ApplicationController
   def show 
     @booking = Booking.find(params[:id])
     @user = User.find(@booking.user_id)
+    @instrument = @booking.instrument
     authorize @booking
     authorize @user
+    authorize @instrument
   end
 
 
