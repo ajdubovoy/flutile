@@ -10,12 +10,14 @@
 <div class="container">
   <div class="description-and-map">
     <div class="row">
+
       <% if current_user.nil? %>
         <%= link_to t(".sign_in", default: "Login to book"), new_user_session_path, class: "btn btn-primary" %>
       <% else %>
         <%= link_to 'Message owner', conversations_path(sender_id: current_user.id, receiver_id: @instrument.user.id), method: :post, class: 'btn btn-primary'%>
+        <%= link_to 'Book this instrument', bookings_path(user_id: current_user.id, instrument_id: @instrument.id), method: :post, class: 'btn btn-primary'%>
       <% end %>
-
+      
       <% if policy(@instrument).edit? %>
         <%= link_to "Edit", edit_instrument_path(@instrument), class: 'btn btn-warning' %>
       <% end %>
