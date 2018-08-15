@@ -48,16 +48,5 @@
         <p><%= @instrument.user.email %></p>
       </div>
     </div>
-  </div>
-    <div class="row">
-    <h2>Book <%= @instrument.name %></h2>
-    <div class="item">
-      <%= simple_form_for [@booking] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= hidden_field_tag :instrument_id, @instrument.id %>
-        <%= f.submit "Book", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
+
 </div>
