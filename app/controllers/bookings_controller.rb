@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.instrument = Instrument.find(instrument_params[:instrument_id])
     @booking.start_date = Date.new(date_params["start_date(1i)"].to_i, date_params["start_date(2i)"].to_i, date_params["start_date(3i)"].to_i)
     @booking.end_date = Date.new(date_params["end_date(1i)"].to_i, date_params["end_date(2i)"].to_i, date_params["end_date(3i)"].to_i)
-    @booking.status = "Pending"
+    @booking.status = "Confirmed"
     @booking.user = current_user
     authorize @booking
     @booking.save
