@@ -14,7 +14,9 @@ class BookingsController < ApplicationController
 
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new
+    @booking.user = User.find(params[:user])
+    @booking.instrument = Instrument.find(params[:instrument])
     authorize @booking
     if @booking.save
       redirect_to booking_path(@booking)
@@ -27,6 +29,6 @@ class BookingsController < ApplicationController
 
    private
     def booking_params
-      params.permit(:user_id, :instrument_id)
+      params.permit(:user, :instrument)
     end
 end
