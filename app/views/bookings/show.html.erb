@@ -4,7 +4,7 @@
     <p>Your <%= @booking.status %> booking in <%= @instrument.location %></p>
   </div>
 </div>
-
+  <%= link_to 'Message owner', conversations_path(sender_id: current_user.id, receiver_id: @instrument.user.id, instrument: @instrument, booking_id: @booking.id), method: :post, class: 'btn btn-primary'%>
 <br>
 
 <div class="container">
