@@ -34,8 +34,6 @@ ActiveRecord::Schema.define(version: 2018_08_15_122448) do
     t.integer "receiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "booking_id"
-    t.index ["booking_id"], name: "index_conversations_on_booking_id"
   end
 
   create_table "instruments", force: :cascade do |t|
@@ -82,7 +80,6 @@ ActiveRecord::Schema.define(version: 2018_08_15_122448) do
   add_foreign_key "bookings", "conversations"
   add_foreign_key "bookings", "instruments"
   add_foreign_key "bookings", "users"
-  add_foreign_key "conversations", "bookings"
   add_foreign_key "instruments", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
