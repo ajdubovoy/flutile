@@ -14,7 +14,6 @@ class BookingsController < ApplicationController
     authorize @instrument
   end
 
-
   def create
     @booking = Booking.new
     @booking.instrument = Instrument.find(instrument_params[:instrument_id])
