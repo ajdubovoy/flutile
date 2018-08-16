@@ -22,11 +22,11 @@ class ConversationsController < ApplicationController
       @conversation.save
       authorize @conversation
     # end
-    redirect_to conversations_path(@conversation)
+    redirect_to conversations_path
   end
 
    private
     def conversation_params
-      params.permit(:sender_id, :receiver_id)
+      params.permit(:sender_id, :receiver_id, :booking_id)
     end
 end
