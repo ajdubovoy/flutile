@@ -1,7 +1,7 @@
 class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_instrument, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     # @instruments = policy_scope(Instrument)
     if params[:query_name].present? && params[:query_location].present?
@@ -22,6 +22,13 @@ class InstrumentsController < ApplicationController
     @booking = Booking.new
     @booking.instrument = @instrument
     @booking.user = current_user
+
+    @marker = [@instrument].map do |instrument|
+      {
+        lat: instrument.latitude,
+        lng: instrument.longitude
+      }
+    end.first
   end
 
   def new

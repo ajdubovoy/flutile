@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_15_122448) do
+ActiveRecord::Schema.define(version: 2018_08_16_102339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,6 @@ ActiveRecord::Schema.define(version: 2018_08_15_122448) do
     t.integer "receiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "booking_id"
-    t.index ["booking_id"], name: "index_conversations_on_booking_id"
   end
 
   create_table "instruments", force: :cascade do |t|
@@ -47,6 +45,8 @@ ActiveRecord::Schema.define(version: 2018_08_15_122448) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_instruments_on_user_id"
   end
 
@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 2018_08_15_122448) do
   add_foreign_key "bookings", "conversations"
   add_foreign_key "bookings", "instruments"
   add_foreign_key "bookings", "users"
-  add_foreign_key "conversations", "bookings"
   add_foreign_key "instruments", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
