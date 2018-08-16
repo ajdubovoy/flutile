@@ -3,7 +3,19 @@ class InstrumentsController < ApplicationController
   before_action :find_instrument, only: [:show, :edit, :update, :destroy]
   
   def index
-    @instruments = policy_scope(Instrument)
+    # @instruments = policy_scope(Instrument)
+    if params[:query_name].present? && params[:query_location].present?
+      @instruments = policy_scope(Instrument.where("name ILIKE ? AND location ILIKE ?", "%#{params[:query_name]}%", "%#{params[:query_location]}%"))
+      @search = true
+    elsif params[:query_name].present?
+      @instruments = policy_scope(Instrument.where("name ILIKE ?", "%#{params[:query_name]}%"))
+      @search = true
+    elsif params[:query_location].present?
+      @instruments = policy_scope(Instrument.where("location ILIKE ?", "%#{params[:query_location]}%"))
+      @search = true
+    else
+      @instruments = policy_scope(Instrument)
+    end
   end
 
   def show
