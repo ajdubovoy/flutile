@@ -47,16 +47,13 @@
         <p><%= @instrument.user.email %></p>
       </div>
     </div>
-  </div>
-    <div class="row">
-    <h2>Book <%= @instrument.name %></h2>
-    <div class="item">
-      <%= simple_form_for [@booking] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= hidden_field_tag :instrument_id, @instrument.id %>
-        <%= f.submit "Book", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
+
 </div>
+
+<form action="/bookings" method="post" >
+  <p><input type="text" id="fromDate" placeholder="Start date" name="<%= :start_date %>">
+     <input type="text" id="toDate" placeholder="End date" name="<%= :end_date %>">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :instrument, @instrument.id %>
+  <input type="submit" value="Book this instrument"></p>
+</form>
