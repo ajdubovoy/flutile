@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2018_08_16_102339) do
   add_foreign_key "bookings", "conversations"
   add_foreign_key "bookings", "instruments"
   add_foreign_key "bookings", "users"
+  add_foreign_key "conversations", "bookings"
   add_foreign_key "instruments", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
