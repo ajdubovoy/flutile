@@ -1,4 +1,4 @@
-<div class="banner banner-small" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 50%), url(' height: 300, width: 400, crop: :fill %>');">
+<div class="banner banner-small">
   <div class="banner-content">
     <h1><%= @instrument.name %></h1>
     <p>Available for rent in <%= @instrument.location %></p>
@@ -15,8 +15,8 @@
         <%= link_to t(".sign_in", default: "Login to book"), new_user_session_path, class: "btn btn-primary" %>
         <% else %>
             <form action="/bookings" method="post" class="form-group form-inline" >
-              <input type="text" id="fromDate" placeholder="Start date" name="<%= :start_date %>" class="form-control">
-                 <input type="text" id="toDate" placeholder="End date" name="<%= :end_date %>" class="form-control">
+              <input type="text" id="start_date" placeholder="Start date" name="<%= :start_date %>" class="form-control">
+                 <input type="text" id="end_date" placeholder="End date" name="<%= :end_date %>" class="form-control">
                   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                   <%= hidden_field_tag :instrument, @instrument.id %>
               <input type="submit" value="Book this instrument" class="btn btn-primary">
