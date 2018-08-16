@@ -1,6 +1,6 @@
 //= require rails-ujs
 //= require_tree .
-//= require jquery
+
 // document.addEventListener("click", alert);
 //   $( function() {
 //     $( "#datepicker" ).datepicker();
@@ -19,7 +19,7 @@
           }
           });
           $("#fromDate").datepicker('setDate', new Date());
-  
+
       $( "#toDate" ).datepicker({
               dateFormat: 'yy-mm-dd',
               inline: true,

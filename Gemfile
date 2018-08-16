@@ -44,3 +44,6 @@ gem 'jquery-rails'
 
 # Search
 gem 'pg_search'
+
+# Map
+gem "geocoder"
