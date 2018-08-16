@@ -4,10 +4,10 @@
       <ul class="list-group">
         <% @conversations.each do |conversation| %>
         <li class="list-group-item" data-conversation-id="<%= conversation.id %>">
-          <% if conversation.recipient(current_user).name.nil? %>
-            <%= link_to conversation.recipient(current_user).email, conversation_messages_path(conversation) %>
+          <% if conversation.receiver.name.nil? %>
+            <%= link_to conversation.receiver.email, conversation_messages_path(conversation) %>: <%= Booking.find(conversation.booking_id).instrument.name %>
           <% else %>
-            <%= link_to conversation.recipient(current_user).email, conversation_messages_path(conversation) %>
+            <%= link_to conversation.receiver.name, conversation_messages_path(conversation) %>: <%= Booking.find(conversation.booking_id).instrument.name %>
           <% end %>
           <% if !conversation.unread_message_count(current_user).zero? %>
           <span class="badge"><%= conversation.unread_message_count(current_user) %></span>
