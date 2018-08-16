@@ -1,4 +1,4 @@
-<div class="banner banner-small" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 50%), url('<%= cl_image_path @instrument.photo, height: 300, width: 400, crop: :fill %>');">
+<div class="banner banner-small" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 50%), url(' height: 300, width: 400, crop: :fill %>');">
   <div class="banner-content">
     <h1><%= @instrument.name %></h1>
     <p>Available for rent in <%= @instrument.location %></p>
@@ -16,7 +16,7 @@
       <% else %>
         <%= link_to 'Message owner', conversations_path(sender_id: current_user.id, receiver_id: @instrument.user.id, instrument: @instrument), method: :post, class: 'btn btn-primary'%>
       <% end %>
-      
+
       <% if policy(@instrument).edit? %>
         <%= link_to "Edit", edit_instrument_path(@instrument), class: 'btn btn-warning' %>
       <% end %>
@@ -27,24 +27,23 @@
 
       <%= link_to "Back to all instruments", instruments_path, class: 'btn btn-default' %>
     </div>
-    
+
     <br>
 
     <div class="row">
-      <div class="col-sm-6"><%= image_tag 'fake-map.png', width: 400 %></div>
+      <div class="col-sm-6" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 50%), url('<%= cl_image_path @instrument.photo, height: 300, width: 400, crop: :fill %>');    width: 400px;
+    height: 300px;"> </div>
       <div class="col-sm-6">
         <h3>Description</h3>
         <p><%= @instrument.description %></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-3 col-sm-offset-6">
+        <div class="col-sm-3">
         <h3>Price</h3>
         <p>€<%= @instrument.price %></p>
       </div>
-      <div class="col-sm-3">
+        <div class="col-sm-3">
         <h3>Owned by</h3>
         <p><%= @instrument.user.email %></p>
+        </div>
       </div>
     </div>
 
