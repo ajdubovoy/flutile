@@ -1,8 +1,12 @@
-.list-group{
-  background-color: $dark-gray !important;
-}
+// .list-group{
+//   background-color: $dark-gray !important;
+// }
 
 .list-group-item{
-  background-color: $light-gray !important;
+  background-color: lightgrey !important;
   color: $darker-gray;
+}
+
+.list-group{
+  padding-top: 5px;
 }
