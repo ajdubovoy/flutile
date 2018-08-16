@@ -22,7 +22,7 @@ class ConversationsController < ApplicationController
       @conversation.save
       authorize @conversation
     # end
-    redirect_to conversations_path
+    redirect_to conversation_messages_path(@conversation)
   end
 
    private
