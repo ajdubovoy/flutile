@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2018_08_16_102339) do
     t.integer "receiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "booking_id"
+    t.index ["booking_id"], name: "index_conversations_on_booking_id"
   end
 
   create_table "instruments", force: :cascade do |t|
