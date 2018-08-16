@@ -10,11 +10,12 @@
           class: "form-control input-lg",
           placeholder: "Find an instrument"
         %>
-        <%= text_field_tag :query_location,
-            params[:query_location],
-            class: "form-control input-lg",
-            placeholder: "Where?"
-          %>
+        <div
+          id="map"
+          style="width: 100%;
+          height: 600px;"
+          data-markers="<%= @markers.to_json %>"
+        ></div>
           <%= submit_tag "Search", class: "btn btn-lg btn-danger"%>
       <% end %>
     </div>
