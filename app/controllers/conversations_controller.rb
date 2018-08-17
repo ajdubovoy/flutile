@@ -18,7 +18,7 @@ class ConversationsController < ApplicationController
     # @conversation = Conversation.create!(conversation_params)
     @conversation.save
       # @conversation = Conversation.where("booking_id = ?", @booking_id)
-      authorize @conversation
+    authorize @conversation
     redirect_to conversations_path(@conversation)
   end
 
