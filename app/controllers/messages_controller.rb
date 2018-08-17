@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
 
     
     if @message.save
-      redirect_to conversation_messages_path(@conversation)
+      redirect_to conversation_messages_path
     authorize @conversation
     end
   end
