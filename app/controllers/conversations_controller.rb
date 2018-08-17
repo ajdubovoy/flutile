@@ -11,18 +11,15 @@ class ConversationsController < ApplicationController
   def create
   #  @booking = Booking.find(params[:booking_id])
   #  @conversation = Conversation.where("booking_id = ?", @booking.id)
-   if @conversation.nil?
     @conversation = Conversation.new
     @conversation.booking = Booking.find(params[:booking_id])
     @conversation.sender = User.find(params[:sender_id])
     @conversation.receiver = User.find(params[:receiver_id])
-    @conversation = Conversation.create!(conversation_params)
+    # @conversation = Conversation.create!(conversation_params)
     @conversation.save
-   else
-      @conversation = Conversation.where("booking_id = ?", @booking_id)
-   end
+      # @conversation = Conversation.where("booking_id = ?", @booking_id)
       authorize @conversation
-    redirect_to conversation_messages_path(@conversation)
+    redirect_to conversations_path(@conversation)
   end
 
    private

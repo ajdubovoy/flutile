@@ -5,11 +5,9 @@ class MessagesController < ApplicationController
     @conversation = Conversation.find(params[:conversation_id])
   end
 
-  def index
+ def index
     @messages = @conversation.messages
-    
     policy_scope(Message).where("user_id != ? AND read = ?", current_user.id, false).update_all(read: true)
-    
     @message = @conversation.messages.new
     authorize @conversation
   end
