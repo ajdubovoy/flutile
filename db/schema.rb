@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 2018_08_16_102339) do
   create_table "conversations", force: :cascade do |t|
     t.integer "sender_id"
     t.integer "receiver_id"
+    t.bigint "booking_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "booking_id"
     t.index ["booking_id"], name: "index_conversations_on_booking_id"
   end
 
