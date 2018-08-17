@@ -42,7 +42,7 @@
       </div>
         <div class="col-sm-3">
         <h3>Owned by</h3>
-        <p><%= @instrument.user.email %></p>
+        <p><%= @instrument.user.name.nil? ? @instrument.user.email : @instrument.user.name %></p>
         </div>
       </div>
     </div>
