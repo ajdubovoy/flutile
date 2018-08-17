@@ -9,20 +9,17 @@ class ConversationsController < ApplicationController
   end
 
   def create
+  #  @booking = Booking.find(params[:booking_id])
+  #  @conversation = Conversation.where("booking_id = ?", @booking.id)
     @conversation = Conversation.new
-
     @conversation.booking = Booking.find(params[:booking_id])
     @conversation.sender = User.find(params[:sender_id])
     @conversation.receiver = User.find(params[:receiver_id])
-    # if Conversation.between(params[:sender_id], params[:receiver_id]).present?
-    #   @conversation = Conversation.between(params[:sender_id], params[:receiver_id]).first
-    #   authorize @conversation
-    # else
-      # @conversation = Conversation.create!(conversation_params)
-      @conversation.save
+    # @conversation = Conversation.create!(conversation_params)
+    @conversation.save
+      # @conversation = Conversation.where("booking_id = ?", @booking_id)
       authorize @conversation
-    # end
-    redirect_to conversation_messages_path(@conversation)
+    redirect_to conversations_path(@conversation)
   end
 
    private
