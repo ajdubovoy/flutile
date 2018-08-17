@@ -1,4 +1,4 @@
-<div class="banner banner-small" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 50%), url('<%= cl_image_path @instrument.photo, height: 300, width: 400, crop: :fill %>');">
+<div class="banner banner-small" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 50%), url('<%= cl_image_path(@instrument.photo, height: 300, width: 400, crop: :fill) unless @instrument.photo.blank? %>');">
   <div class="banner-content">
     <h1><%= @booking.status %></h1>
     <p>Your booking: <%= @instrument.name %> in <%= @instrument.location %></p>
