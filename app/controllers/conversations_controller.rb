@@ -11,9 +11,9 @@ class ConversationsController < ApplicationController
   def create
     @conversation = Conversation.new
 
-    @conversation.booking_id = params[:booking_id]
-    @conversation.sender_id = params[:sender_id]
-    @conversation.receiver_id = params[:receiver_id]
+    @conversation.booking = Booking.find(params[:booking_id])
+    @conversation.sender = User.find(params[:sender_id])
+    @conversation.receiver = User.find(params[:receiver_id])
     # if Conversation.between(params[:sender_id], params[:receiver_id]).present?
     #   @conversation = Conversation.between(params[:sender_id], params[:receiver_id]).first
     #   authorize @conversation
