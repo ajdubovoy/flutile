@@ -8,7 +8,7 @@ if (mapHolder) {
 
   var map = new mapboxgl.Map({
     container: 'map', // container id
-    style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
+    style: 'mapbox://styles/mapbox/dark-v9', // stylesheet location
     center: [marker.lng, marker.lat], // starting position [lng, lat]
     zoom: 14 // starting zoom
   });
